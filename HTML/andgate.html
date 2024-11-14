@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AND</title>
+    <title>AND Gate Simulator</title>
     <style>
         .button {
             background-color: #008CBA; /* Blue */
@@ -26,6 +26,7 @@
 </head>
 <body>
 
+<!-- External JavaScript file -->
 <script src="javascript.js"></script>
 
 <script>
@@ -36,15 +37,15 @@
     // Function to toggle images and input state
     function toggleImage(imageId) {
         const image = document.getElementById(imageId);
-        if (image.src.includes("butt-off-runner.png")) {
-            image.src = "button-on.png"; // 'on' state image
+        if (image.src.includes("button-off-xxl.png")) {
+            image.src = "button-onrunner.png"; // 'on' state image
             if (imageId === 'toggleImage1') {
                 inputOne = true;
             } else {
                 inputTwo = true;
             }
         } else {
-            image.src = "butt-off-runner.png"; // 'off' state image
+            image.src = "button-off-xxl.png"; // 'off' state image
             if (imageId === 'toggleImage1') {
                 inputOne = false;
             } else {
@@ -62,7 +63,7 @@
         if (andResult) {
             document.getElementById('andGate').src = "and2on.png"; // AND gate 'on'
         } else {
-            document.getElementById('andGate').src = "and2off.PNG"; // AND gate 'off'
+            document.getElementById('andGate').src = "and2off.png"; // AND gate 'off'
         }
     }
 
@@ -79,13 +80,13 @@
     <tr>
         <td>
             <!-- Toggleable images for inputs (input 1 and input 2) -->
-            <img src="butt-off-runner.png" id="toggleImage1" onclick="toggleImage('toggleImage1');" />
+            <img src="button-off-xxl.png" id="toggleImage1" onclick="toggleImage('toggleImage1');" />
             <br>
-            <img src="butt-off-runner.png" id="toggleImage2" onclick="toggleImage('toggleImage2');" />
+            <img src="button-onrunner.png" id="toggleImage2" onclick="toggleImage('toggleImage2');" />
         </td>
         <td>
             <!-- AND gate image (initially in 'off' state) -->
-            <img id="andGate" src="and2off.PNG" />
+            <img id="andGate" src="and2off.png" />
         </td>
     </tr>
 </table>
