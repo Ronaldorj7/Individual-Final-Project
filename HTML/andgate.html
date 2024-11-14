@@ -41,12 +41,12 @@
     // Function to update the AND gate logic based on input states
     function updateAndGate() {
         // Check the states of the two inputs (images)
-        if (document.getElementById('toggleImage1').src.includes("button-on.png")) {
+        if (document.getElementById('toggleImage1').src.includes("button-onrunner.png")) {
             inputOne = true;
         } else {
             inputOne = false;
         }
-        if (document.getElementById('toggleImage2').src.includes("button-on.png")) {
+        if (document.getElementById('toggleImage2').src.includes("button-onrunner.png")) {
             inputTwo = true;
         } else {
             inputTwo = false;
@@ -77,7 +77,7 @@
             <!-- Toggleable images for inputs -->
             <img src="button-off-xxl.png" id="toggleImage1" onclick="toggleImage('toggleImage1');"/>
             <br>
-            <img src="button-off-xxl.png" id="toggleImage2" onclick="toggleImage('toggleImage2');"/> 
+            <img src="button-onrunner.png" id="toggleImage2" onclick="toggleImage('toggleImage2');"/> 
         </td>
         <td>
             <!-- AND gate image -->
