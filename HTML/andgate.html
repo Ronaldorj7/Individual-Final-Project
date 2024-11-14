@@ -1,54 +1,97 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AND</title>
-	<style>
-.button {
-  background-color: #008CBA; /* Blue */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
+    <style>
+        .button {
+            background-color: #008CBA; /* Blue */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px; /* Set a consistent image width */
+            height: auto;
+        }
+    </style>
 </head>
 <body>
 
-<script src = "javascript.js"></script>
-<script> 
+<script src="javascript.js"></script>
 
+<script>
+    // Input states (true = on, false = off)
+    let inputOne = false;
+    let inputTwo = false;
+
+    // Function to toggle images and input state
+    function toggleImage(imageId) {
+        const image = document.getElementById(imageId);
+        if (image.src.includes("butt-off-runner.png")) {
+            image.src = "button-on.png"; // 'on' state image
+            if (imageId === 'toggleImage1') {
+                inputOne = true;
+            } else {
+                inputTwo = true;
+            }
+        } else {
+            image.src = "butt-off-runner.png"; // 'off' state image
+            if (imageId === 'toggleImage1') {
+                inputOne = false;
+            } else {
+                inputTwo = false;
+            }
+        }
+        updateAndGate(); // Update the AND gate result after toggling
+    }
+
+    // Function to update the AND gate logic based on input states
+    function updateAndGate() {
+        const andResult = inputOne && inputTwo; // Perform AND operation
+
+        // Update AND gate image based on result
+        if (andResult) {
+            document.getElementById('andGate').src = "and2on.png"; // AND gate 'on'
+        } else {
+            document.getElementById('andGate').src = "and2off.PNG"; // AND gate 'off'
+        }
+    }
+
+    // Function for the "Run" button that updates the AND gate based on inputs
+    function and() {
+        updateAndGate(); // Update the AND gate state when the "Run" button is clicked
+    }
 </script>
 
- <button class="button" onclick = "and()">Run</button>
-<p>
+<!-- Run button to execute the AND gate logic -->
+<button class="button" onclick="and()">Run</button>
 
 <table style="width:100%">
-
-  <tr>
-    <td>
-	<img src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png"  id="toggleImage" onclick="toggleImage(); toggleInputOne();"/>
-	<br>
-    <img src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png"  id="toggleImage2" onclick="toggleImage2(); toggleInputTwo();"/> 
-</td>
-    <td><img id="andGate" src="and2off.PNG" ></td>
-
+    <tr>
+        <td>
+            <!-- Toggleable images for inputs (input 1 and input 2) -->
+            <img src="butt-off-runner.png" id="toggleImage1" onclick="toggleImage('toggleImage1');" />
+            <br>
+            <img src="butt-off-runner.png" id="toggleImage2" onclick="toggleImage('toggleImage2');" />
+        </td>
+        <td>
+            <!-- AND gate image (initially in 'off' state) -->
+            <img id="andGate" src="and2off.PNG" />
+        </td>
+    </tr>
 </table>
 
-<a href="index.html">Back to Home</a></h3>
-
-</p>
-
-
-
-
-
+<!-- Link to go back to the homepage -->
+<a href="index.html">Back to Home</a>
 
 </body>
 </html>
